@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar profesores{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+    <h3 class="card-title">Lista de profesores</h3>
+    </div>
+   {% if profesores %}
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+                   <th>Apellido</th>
+                   <th>Área</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for profesor in profesores %}
+               <tr>
+                   <td>{{ profesor.id }}</td>
+                   <td>{{ profesor.pro_cod }}</td>
+                   <td>{{ profesor.pro_nom }}</td>
+                   <td>{{ profesor.pro_ap }}</td>
+                   <td>{{ profesor.pro_are }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay profesores registrados</h1>
+   {% endif %}
+
+{% endblock body %}

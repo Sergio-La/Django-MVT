@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Iniciar sesión</h3>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nombre de usuario</label>
+                <input type="text" class="form-control" id="nomuser" name="username" placeholder="Nombre de usuario" {{ form.username }}
+            </div>
+            
+            <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="pw1" name="password" placeholder="Contraseña"  {{ form.password1 }}
+            </div>
+            <br>
+            {% for messange in messages %}
+             <p id="messages">{{messange}}</p>
+            {% endfor %}
+
+        <div class="card text-center">
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+        <div class="card text-center">
+            <h5 class="card-title"></h5>
+            <a href="{% url 'registro' %} " class="btn btn-info">¿No estás resgistrado?</a>
+       </div>
+    </form> 
+    </div>
+</div>
+
+</body>
+</html>

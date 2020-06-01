@@ -1,0 +1,37 @@
+ {% extends 'index.html' %}
+
+ {% block titulo %}Listar estudiantes{% endblock titulo %}
+
+ {% block body %}
+ <div class="card text-center">
+    <h3 class="card-title">Lista de estudiantes</h3>
+    </div>
+    {% if estudiantes %}
+    
+        <table class="table table-bordered">
+            <thead class="table-active">
+                <tr scope="col">
+                    <th>#</th>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Curso</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.id }}</td>
+                    <td>{{ estudiante.est_cod }}</td>
+                    <td>{{ estudiante.est_nom }}</td>
+                    <td>{{ estudiante.est_ap }}</td>
+                    <td>{{ estudiante.est_cur }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <h1>No hay estudiantes registrados</h1>
+    {% endif %}
+
+ {% endblock body %}

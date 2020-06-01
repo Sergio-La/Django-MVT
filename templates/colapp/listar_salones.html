@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar salones{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+    <h3 class="card-title">Lista de salones</h3>
+    </div>
+   {% if salon %}
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+                   <th>Curso</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for salon in salon %}
+               <tr>
+                   <td>{{ salon.id }}</td>
+                   <td>{{ salon.sal_cod }}</td>
+                   <td>{{ salon.sal_nom }}</td>
+                   <td>{{ salon.sal_cur }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay salones registrados</h1>
+   {% endif %}
+
+{% endblock body %}

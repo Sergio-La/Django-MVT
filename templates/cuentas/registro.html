@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Crear Usuario</h3>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nombre de usuario</label>
+                <input type="text" class="form-control" id="nomuser" placeholder="Nombre de usuario" {{ form.username }}
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">Dirección de correo electrónico</label>
+            <input type="email" class="form-control" id="mailuser" aria-describedby="emailHelp" placeholder="correo@ejemplo.com" {{ form.email }}
+            <small id="emailHelp" class="form-text text-muted">Su correo no se va a compartir con nadie</small>
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="pw1" placeholder="Contraseña" {{ form.password1 }}
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Vericar Contraseña</label>
+                <input type="password" class="form-control" id="pw2" placeholder="Verificar Contraseña" {{ form.password2 }}
+            </div>
+        </br>
+        <div class="card text-center">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+        <div class="card text-center">
+            <h5 class="card-title"></h5>
+            <a href="{% url 'login' %} " class="btn btn-info">¿Ya estás resgistrado?</a>
+       </div>       
+       {{form.errors}}
+        </form>
+    </div>
+    
+</div>
+</body>
+</html>

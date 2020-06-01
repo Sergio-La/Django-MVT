@@ -1,0 +1,38 @@
+{% extends 'index.html'  %}
+{% block titulo %}
+Insertar Estudiantes
+{% endblock titulo %}
+
+{% block body%}
+<div class="card text-center">
+  <h3 class="card-title">Insertar Estudiantes</h3>
+  </div>
+<div class="card">
+    <div class="card-body">
+    <form class="needs-validation" novalidate method="POST">
+           {% csrf_token %}
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="est_cod" placeholder="Código"  required {{ estudiante_form.est_cod }}
+            <div class="invalid-feedback">
+              Por favor ingrese un código.
+            </div>
+           </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="est_nom" placeholder="Nombre" {{ estudiante_form.est_nom }}
+           </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="est_ap" placeholder="Apellido" {{ estudiante_form.est_ap }}
+           </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" id="est_cur" placeholder="Curso" {{ estudiante_form.est_cur }}
+           </div>
+
+           <button type="submit" class="btn btn-primary">Insertar</button>
+    </form>
+  </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Listar materia{% endblock titulo %}
+
+{% block body %}
+<div class="card text-center">
+<h3 class="card-title">Lista de materias</h3>
+</div>
+   {% if materias %}
+       <table class="table table-bordered">
+           <thead class="table-active">
+               <tr scope="col">
+                   <th>#</th>
+                   <th>Código</th>
+                   <th>Nombre</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for materia in materias %}
+               <tr>
+                   <td>{{ materia.id }}</td>
+                   <td>{{ materia.ma_cod }}</td>
+                   <td>{{ materia.ma_nom }}</td>
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+   {% else %}
+   <h1>No hay materias registrados</h1>
+   {% endif %}
+
+{% endblock body %}
